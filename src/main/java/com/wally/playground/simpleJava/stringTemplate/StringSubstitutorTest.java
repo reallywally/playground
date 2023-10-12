@@ -5,7 +5,7 @@ import org.apache.commons.text.StringSubstitutor;
 import java.util.HashMap;
 import java.util.Map;
 
-public class StringTemplate {
+public class StringSubstitutorTest {
     public static void main(String[] args) {
 
         Map<String, String> valuesMap = new HashMap<>();

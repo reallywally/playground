@@ -18,7 +18,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.apache.commons:commons-text:1.10.0'
+	implementation 'org.apache.commons:commons-text:1.10.0'  // StringEscapeUtils
+	implementation 'com.github.spullara.mustache.java:compiler:0.8.9'  // Mustache
 	implementation 'org.projectlombok:lombok:1.18.20'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
