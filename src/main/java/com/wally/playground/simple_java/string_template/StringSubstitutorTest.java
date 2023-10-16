@@ -1,4 +1,4 @@
-package com.wally.playground.simpleJava.stringTemplate;
+package com.wally.playground.simple_java.string_template;
 
 import org.apache.commons.text.StringSubstitutor;
 
