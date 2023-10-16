@@ -4,80 +4,56 @@ import com.github.mustachejava.DefaultMustacheFactory;
 import com.github.mustachejava.Mustache;
 import com.github.mustachejava.MustacheFactory;
 
-import java.io.*;
-import java.util.Arrays;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.List;
 
 public class MustacheTest {
-    List<Item> items() {
-        return Arrays.asList(
-                new Item("Item 1", "$19.99", Arrays.asList(new Feature("New!"), new Feature("Awesome!"))),
-                new Item("Item 2", "$29.99", Arrays.asList(new Feature("Old."), new Feature("Ugly.")))
-        );
-    }
-
     static class Item {
-        Item(String name, String price, List<Feature> features) {
+        Item(String name, String price) {
             this.name = name;
             this.price = price;
-            this.features = features;
         }
 
         String name, price;
-        List<Feature> features;
-    }
-
-    static class Feature {
-        Feature(String description) {
-            this.description = description;
-        }
-
-        String description;
     }
 
     public static void main(String[] args) {
-        // 변수를 가진걸로 처리
+
         String text = """
-                {{#items}}
-                Name: {{name}}
-                Price: {{price}}
-                  {{#features}}
-                  Feature: {{description}}
-                  {{/features}}
-                {{/items}}
+                <html>
+                    <head>
+                        <title>메일 제목</title>
+                    </head>
+                    <body>
+                        {{mallName}}
+                        
+                        {{#items}}
+                        <div>
+                            <h2>{{name}}</h2>
+                            <h2>{{price}}</h2>
+                            <h2>{{name}}</h2>
+                        </div>
+                        {{/items}}
+                    </body>
+                </html>
                 """;
 
-//        MustacheFactory mf = new DefaultMustacheFactory();
-//        Mustache mustache = mf.compile(new StringReader(text), "example");
-//
-//        try {
-//            mustache.execute(new PrintWriter(System.out), new MustacheTest()).flush();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-        // 맵 사용
+        MustacheFactory mustacheFactory = new DefaultMustacheFactory();
         List<Item> items = List.of(
-                new Item("Item 11", "$19.99", Arrays.asList(new Feature("New!"), new Feature("Awesome!"))),
-                new Item("Item 22", "$29.99", Arrays.asList(new Feature("Old."), new Feature("Ugly.")))
+                new Item("Item 11", "$19.99"),
+                new Item("Item 22", "$29.99")
         );
 
-        var scopes = new HashMap<String, Object>();
-        scopes.put("items", items);
-//        scopes.put("name", "Mustache");
-//        scopes.put("feature", new Feature("Perfect!"));
+        HashMap<String, Object> data = new HashMap<>();
+        data.put("mallName", "김쇼핑몰");
+        data.put("items", items);
 
-        Writer writer = new OutputStreamWriter(System.out);
-        MustacheFactory mf = new DefaultMustacheFactory();
-        Mustache mustache = mf.compile(new StringReader(text), "example");
-        mustache.execute(writer, scopes);
+        StringWriter stringWriter = new StringWriter();
+        Mustache textMustache = mustacheFactory.compile(new StringReader(text), "textMustache");
+        textMustache.execute(stringWriter, data);
 
-        try {
-            writer.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        System.out.println(stringWriter);
     }
 }
