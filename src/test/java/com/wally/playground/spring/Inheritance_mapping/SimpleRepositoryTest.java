@@ -20,4 +20,5 @@ class SimpleRepositoryTest {
 
         simpleRepository.save(notice);
     }
+
 }
