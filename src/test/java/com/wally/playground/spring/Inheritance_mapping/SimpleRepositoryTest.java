@@ -12,23 +12,12 @@ class SimpleRepositoryTest {
 
     @Test
     void save() {
+        Notice notice = Notice.builder()
+                .title("notice title2")
+                .content("notice content2")
+                .likeCount(12)
+                .build();
 
-//        Board board = Board.builder()
-//                .title("board title")
-//                .content("board content")
-//                .build();
-//
-//        simpleRepository.save(board);
-
-//        Notice notice = Notice.builder()
-//                .title("notice title")
-//                .content("notice content")
-//                .boardType("NOTICE")
-//                .like(10)
-//                .build();
-
-
-
-        simpleRepository.save();
+        simpleRepository.save(notice);
     }
 }
