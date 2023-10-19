@@ -1,10 +1,6 @@
 package com.wally.playground.spring.hexagonal_company.common;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import jakarta.validation.*;
 import java.util.Set;
 
 public abstract class SelfValidating<T> {
