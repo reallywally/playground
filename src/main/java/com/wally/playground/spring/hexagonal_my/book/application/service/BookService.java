@@ -2,7 +2,7 @@ package com.wally.playground.spring.hexagonal_my.book.application.service;
 
 import com.wally.playground.spring.hexagonal_company.common.UseCase;
 import com.wally.playground.spring.hexagonal_my.book.application.port.in.BookUseCase;
-import com.wally.playground.spring.hexagonal_my.book.application.port.in.command.CreateCommand;
+import com.wally.playground.spring.hexagonal_my.book.application.port.in.command.BookCreateCommand;
 import com.wally.playground.spring.hexagonal_my.book.application.port.out.BookQueryPort;
 import com.wally.playground.spring.hexagonal_my.book.domain.entity.Book;
 import lombok.RequiredArgsConstructor;
@@ -17,9 +17,9 @@ public class BookService implements BookUseCase {
 
     @Override
     @Transactional
-    public void create(CreateCommand createCommand) {
+    public void createBook(BookCreateCommand bookCreateCommand) {
 
-        Book book = createCommand.toEntity();
+        Book book = bookCreateCommand.toEntity();
         bookQueryPort.insert(book);
     }
 }

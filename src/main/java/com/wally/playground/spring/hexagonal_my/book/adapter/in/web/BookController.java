@@ -3,7 +3,7 @@ package com.wally.playground.spring.hexagonal_my.book.adapter.in.web;
 import com.wally.playground.spring.hexagonal_company.common.WebAdapter;
 import com.wally.playground.spring.hexagonal_my.book.adapter.in.web.model.BookCreateRequest;
 import com.wally.playground.spring.hexagonal_my.book.application.port.in.BookUseCase;
-import com.wally.playground.spring.hexagonal_my.book.application.port.in.command.CreateCommand;
+import com.wally.playground.spring.hexagonal_my.book.application.port.in.command.BookCreateCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +22,7 @@ public class BookController {
     @PostMapping("/books")
     public void postBook(@RequestBody BookCreateRequest create) {
 
-        CreateCommand createCommand = create.toCommand();
-        bookUseCase.create(createCommand);
+        BookCreateCommand bookCreateCommand = create.toCommand();
+        bookUseCase.createBook(bookCreateCommand);
     }
 }

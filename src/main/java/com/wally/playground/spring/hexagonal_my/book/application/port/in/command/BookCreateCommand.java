@@ -9,7 +9,7 @@ import jakarta.validation.constraints.Size;
 import lombok.Builder;
 
 @Builder
-public class CreateCommand extends SelfValidating<CreateCommand> {
+public class BookCreateCommand extends SelfValidating<BookCreateCommand> {
     @NotNull
     @Size(min = 1, max = 100)
     private String name;

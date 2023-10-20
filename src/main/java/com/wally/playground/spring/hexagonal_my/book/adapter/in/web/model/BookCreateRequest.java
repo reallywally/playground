@@ -1,6 +1,6 @@
 package com.wally.playground.spring.hexagonal_my.book.adapter.in.web.model;
 
-import com.wally.playground.spring.hexagonal_my.book.application.port.in.command.CreateCommand;
+import com.wally.playground.spring.hexagonal_my.book.application.port.in.command.BookCreateCommand;
 import com.wally.playground.spring.hexagonal_my.book.domain.model.BookCategory;
 import lombok.Data;
 
@@ -12,8 +12,8 @@ public class BookCreateRequest {
     private String isbn;
     private BookCategory category;
 
-    public CreateCommand toCommand() {
-        return CreateCommand.builder()
+    public BookCreateCommand toCommand() {
+        return BookCreateCommand.builder()
                 .name(name)
                 .description(description)
                 .price(price)

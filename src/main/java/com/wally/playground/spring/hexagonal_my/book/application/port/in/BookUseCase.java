@@ -1,8 +1,8 @@
 package com.wally.playground.spring.hexagonal_my.book.application.port.in;
 
-import com.wally.playground.spring.hexagonal_my.book.application.port.in.command.CreateCommand;
+import com.wally.playground.spring.hexagonal_my.book.application.port.in.command.BookCreateCommand;
 
 public interface BookUseCase {
-    void create(CreateCommand createCommand);
+    void createBook(BookCreateCommand createCommand);
 
 }
