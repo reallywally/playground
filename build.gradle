@@ -23,6 +23,7 @@ dependencies {
     implementation 'com.github.spullara.mustache.java:compiler:0.8.9'  // Mustache
     implementation 'org.projectlombok:lombok:1.18.20'
     implementation 'mysql:mysql-connector-java:8.0.27' // MySQL
+    implementation 'org.jsoup:jsoup:1.16.2' // Jsoup
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
