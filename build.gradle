@@ -24,11 +24,14 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.20'
     implementation 'mysql:mysql-connector-java:8.0.27' // MySQL
     implementation 'org.jsoup:jsoup:1.16.2' // Jsoup
+    implementation 'org.apache.commons:commons-lang3:3.13.0' // StringUtils
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    testCompileOnly 'org.projectlombok:lombok:1.18.20'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
 tasks.named('test') {
