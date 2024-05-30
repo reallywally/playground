@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class ReturnMain {
     public static void main(String[] args) {
-        Map<String, String> map = getMapV1();
-        System.out.println("class name is " + map.getClass().getName());
+        Map<String, String> map1 = getMapV1();
+        System.out.println("class name is " + map1.getClass().getName());
 
         Map<String, String> map2 = getMapV2();
         System.out.println("class name is " + map2.getClass().getName());
