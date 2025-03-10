@@ -17,12 +17,13 @@ public class ThreadTest {
         threads.forEach(Thread::start);
     }
 
-    static void runVirtualThread() {
-        List<Thread> virtualThreads = IntStream.range(0, 1000000)
-                .mapToObj(i -> Thread.ofVirtual().unstarted(() -> {
-                }))
-                .toList();
 
-        virtualThreads.forEach(Thread::start);
-    }
+//    static void runVirtualThread() {
+//        List<Thread> virtualThreads = IntStream.range(0, 1000000)
+//                .mapToObj(i -> Thread.ofVirtual().unstarted(() -> {
+//                }))
+//                .toList();
+//
+//        virtualThreads.forEach(Thread::start);
+//    }
 }
