@@ -10,10 +10,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductAdapter implements ProductQueryPort {
 
-    private final ProductRepository productRepository;
+//    private final ProductRepository productRepository;
 
     @Override
     public void insert(Product product) {
-        productRepository.save(product);
+//        productRepository.save(product);
     }
 }

@@ -10,10 +10,10 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class BookAdapter implements BookQueryPort {
 
-    private final BookRepository bookRepository;
+//    private final BookRepository bookRepository;
 
     @Override
     public void insert(Book book) {
-        bookRepository.save(book);
+//        bookRepository.save(book);
     }
 }
